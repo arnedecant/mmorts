@@ -3,7 +3,7 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-class Hero extends Model {
+class Resource extends Model {
 
     static get createdAtColumn () {
         // return 'created_at'
@@ -17,4 +17,4 @@ class Hero extends Model {
 
 }
 
-module.exports = Hero
+module.exports = Resource

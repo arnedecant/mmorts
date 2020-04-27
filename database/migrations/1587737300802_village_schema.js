@@ -8,6 +8,11 @@ class VillageSchema extends Schema {
     this.create('villages', (table) => {
       table.increments()
       table.string('name')
+      table.integer('stone').defaultTo(200)
+      table.integer('iron').defaultTo(200)
+      table.integer('wood').defaultTo(200)
+      table.integer('food').defaultTo(400)
+      table.integer('leather').defaultTo(0)
       table.integer('user_id').unsigned()
 			table.foreign('user_id').references('Users.id').onDelete('cascade')
       table.timestamps()

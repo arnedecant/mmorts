@@ -7,9 +7,8 @@ class HeroSchema extends Schema {
   up () {
     this.create('heroes', (table) => {
       table.increments()
-      table.string('name')
-			table.string('description')
-      table.timestamps()
+      table.string('label')
+      // table.timestamps()
     })
   }
 

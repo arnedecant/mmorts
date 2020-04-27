@@ -1,5 +1,7 @@
 'use strict'
 
+const Building = use('App/Models/Building')
+
 /*
 |--------------------------------------------------------------------------
 | BuildingSeeder
@@ -14,8 +16,17 @@
 const Factory = use('Factory')
 
 class BuildingSeeder {
-  async run () {
-  }
+
+	async run() {
+
+		const buildings = ['castle', 'house', 'smith', 'farm', 'lumbermill', 'stables']
+
+		for (let label of buildings) {
+			await Building.create({ label })
+		}
+
+	}
+
 }
 
 module.exports = BuildingSeeder

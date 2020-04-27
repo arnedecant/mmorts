@@ -7,6 +7,8 @@ class BuildingSchema extends Schema {
   up () {
     this.create('buildings', (table) => {
       table.increments()
+      table.string('label')
+			table.string('description')
       table.timestamps()
     })
   }
