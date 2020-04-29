@@ -15,6 +15,10 @@ class Building extends Model {
         return null
     }
     
+    levels() {
+        return this.hasMany('App/Models/BuildingLevel')
+    }
+
 }
 
 module.exports = Building

@@ -21,7 +21,9 @@ class BuildingController {
 	 */
 	async index({ request, response, view }) {
 
-		const buildings = await Building.query().fetch()
+		const buildings = await Building.query()
+			.with('levels', (builder) => builder.with('cost').with('yield'))
+			.fetch()
 		return response.json(buildings)
 
 	}

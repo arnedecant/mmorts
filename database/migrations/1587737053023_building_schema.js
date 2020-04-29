@@ -9,7 +9,7 @@ class BuildingSchema extends Schema {
       table.increments()
       table.string('label')
 			table.string('description')
-      table.timestamps()
+      // table.timestamps()
     })
   }
 

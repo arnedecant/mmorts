@@ -8,11 +8,13 @@ class BuildingLevelSchema extends Schema {
     this.create('building_levels', (table) => {
       table.increments()
       table.integer('level').defaultsTo(0)
+      table.integer('building_id').unsigned()
+			table.foreign('building_id').references('Building.id').onDelete('cascade')
       table.integer('cost_resource_id').unsigned()
 			table.foreign('cost_resource_id').references('Resource.id').onDelete('cascade')
       table.integer('yield_resource_id').unsigned()
 			table.foreign('yield_resource_id').references('Resource.id').onDelete('cascade')
-      table.timestamps()
+      // table.timestamps()
     })
   }
 

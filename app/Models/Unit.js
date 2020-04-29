@@ -17,7 +17,7 @@ class Unit extends Model {
 
     upkeep() {
 
-        return this.belongsTo('App/Models/Resource', 'resource_id');
+        return this.belongsTo('App/Models/Resource', 'resource_id')
 
     }
     
