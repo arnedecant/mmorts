@@ -15,18 +15,21 @@
 const Factory = use('Factory')
 
 Factory.blueprint('App/Models/User', (faker) => {
+
 	return {
 		username: faker.username(),
-		email: faker.email({ domain: '@example.com' }),
-		// password: await Hash.make(faker.password()),
-		password: 'test',
+		email: faker.email({ domain: 'example.com' }),
+		password: 'pwd4test',
+		race: faker.pickone(['human', 'orc'])
 	}
 })
 
-// Factory.blueprint('App/Models/Village', (faker) => {
-// 	return {
-// 		username: faker.username(),
-// 		password: await Hash.make(faker.password()),
-// 		email: faker.email({ domain: '@example.com' })
-// 	}
-// })
+Factory.blueprint('App/Models/Village', (faker) => {
+
+	return {
+		// name: faker.capitalize(faker.word()),
+		name: faker.city(),
+		x: faker.integer({ min: -30, max: 30 }),
+		y: faker.integer({ min: -30, max: 30 })
+	}
+})

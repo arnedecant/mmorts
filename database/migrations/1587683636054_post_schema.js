@@ -4,6 +4,7 @@
 const Schema = use('Schema')
 
 class PostSchema extends Schema {
+
 	up() {
 		this.create('posts', (table) => {
 			table.increments()
@@ -18,6 +19,7 @@ class PostSchema extends Schema {
 	down() {
 		this.drop('posts')
 	}
+	
 }
 
 module.exports = PostSchema

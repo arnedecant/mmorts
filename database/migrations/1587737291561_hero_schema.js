@@ -4,17 +4,19 @@
 const Schema = use('Schema')
 
 class HeroSchema extends Schema {
-  up () {
-    this.create('heroes', (table) => {
-      table.increments()
-      table.string('label')
-      // table.timestamps()
-    })
-  }
 
-  down () {
-    this.drop('heroes')
-  }
+	up() {
+		this.create('heroes', (table) => {
+			table.increments()
+			table.string('label')
+			// table.timestamps()
+		})
+	}
+
+	down() {
+		this.drop('heroes')
+	}
+
 }
 
 module.exports = HeroSchema

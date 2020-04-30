@@ -1,7 +1,5 @@
 'use strict'
 
-const User = use('App/Models/User')
-
 /*
 |--------------------------------------------------------------------------
 | UserSeeder
@@ -14,27 +12,37 @@ const User = use('App/Models/User')
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use('Factory')
+const User = use('App/Models/User')
+const Village = use('App/Models/Village')
 
 class UserSeeder {
 
 	async run() {
 
+		const amount = 15
+		let user, village
+
 		// Create main testing user
 
-		// await User.create({ username: 'artharos', email: 'hello@arnedecant.be', password: 'pwd4arne', race: 'orc' })
+		user = await User.create({ username: 'artharos', email: 'hello@arnedecant.be', password: 'pwd4arne', race: 'orc' })
+		village = await Village.create({ name: 'Asgard', x: 0, y: 0 })
 
+		village.user().associate(user)
+
+		console.log(`Seeded user: ${ user.username }`)
+		
 		// Create some randoms
 
-		const users = await Factory.model('App/Models/User').createMany(5)
-		console.log(users)
-		// const races = ['human', 'orc']
+		for (let i = 0; i < amount; i++) {
 
-		// for (let u of users) {
+			user = await Factory.model('App/Models/User').create()
+			village = await Factory.model('App/Models/Village').create()
 
-		// 	const race = races[Math.floor(Math.random() * races.length)]
-		// 	const user = await User.create({ ...u, password: 'pwd4test', race })
+			village.user().associate(user)
 
-		// }
+			console.log(`Seeded user: ${ user.username }`)
+
+		}
 
 	}
 

@@ -12,10 +12,16 @@
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use('Factory')
+const Village = use('App/Models/Village')
 
 class VillageSeeder {
-  async run () {
-  }
+	
+	async run() {
+
+		
+		
+	}
+
 }
 
 module.exports = VillageSeeder
